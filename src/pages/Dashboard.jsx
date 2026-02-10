@@ -1,20 +1,20 @@
-import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
   const navigate = useNavigate();
-  const user = JSON.parse(localStorage.getItem('currentUser'));
+  const user = JSON.parse(localStorage.getItem("currentUser"));
 
   useEffect(() => {
-    if (!localStorage.getItem('loginData')) {
-      navigate('/login');
+    if (!localStorage.getItem("loginData")) {
+      navigate("/login");
     }
   }, [navigate]);
 
   const logout = () => {
-    localStorage.removeItem('loginData');
-    localStorage.removeItem('currentUser');
-    navigate('/login');
+    localStorage.removeItem("loginData");
+    localStorage.removeItem("currentUser");
+    navigate("/login");
   };
 
   return (

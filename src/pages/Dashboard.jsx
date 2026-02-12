@@ -51,8 +51,9 @@ const Dashboard = () => {
   };
 
   // Get current user from localStorage
-  const loginData = JSON.parse(localStorage.getItem("loginData") || "{}");
- const currentUser = loginData?.username || "User";
+ const loginData = JSON.parse(localStorage.getItem("loginData") || "{}");
+const currentUser = loginData?.username || "User";
+
 
   // Calculate stats
   const totalPosts = posts.length;

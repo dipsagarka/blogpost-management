@@ -60,15 +60,14 @@ const Register = () => {
     setErrors({ ...errors, [e.target.name]: "" });
   };
 
- const handleSubmit = (e) => {
+const handleSubmit = (e) => {
   e.preventDefault();
   if (!validate()) return;
 
-  // ✅ Store user permanently (registration data)
   localStorage.setItem(
     "authData",
     JSON.stringify({
-      username: formData.name,   // 👈 important change
+      username: formData.name,   // ✅ correct key
       email: formData.email,
       phone: formData.phone,
       password: formData.password,
@@ -76,9 +75,9 @@ const Register = () => {
   );
 
   toast.success("Registration successful! 👍");
-
   navigate("/login");
 };
+
 
 
   return (

@@ -23,6 +23,30 @@
       "image": "https://picsum.photos/400",
       "author": "user",
       "date": "Recent"
+    },
+    {
+      "id": 4,
+      "title": "Fourth post Post",
+      "description": "Sample description",
+      "image": "https://picsum.photos/400",
+      "author": "user",
+      "date": "Recent"
+    },
+    {
+      "id": 5,
+      "title": "Fifth post Post",
+      "description": "Sample description",
+      "image": "https://picsum.photos/400",
+      "author": "user",
+      "date": "Recent"
+    },
+    {
+      "id": 6,
+      "title": "Sixth post Post",
+      "description": "Sample description",
+      "image": "https://picsum.photos/400",
+      "author": "user",
+      "date": "Recent"
     }
   ]
 }

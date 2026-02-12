@@ -60,28 +60,31 @@ const Register = () => {
     setErrors({ ...errors, [e.target.name]: "" });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!validate()) return;
+ const handleSubmit = (e) => {
+  e.preventDefault();
+  if (!validate()) return;
 
-    localStorage.setItem(
-      "authData",
-      JSON.stringify({
-        name: formData.name,
-        email: formData.email,
-        phone: formData.phone,
-        password: formData.password,
-      }),
-    );
+  // ✅ Store user permanently (registration data)
+  localStorage.setItem(
+    "authData",
+    JSON.stringify({
+      username: formData.name,   // 👈 important change
+      email: formData.email,
+      phone: formData.phone,
+      password: formData.password,
+    })
+  );
 
-    toast.success("Registration successful!👍");
-    navigate("/Login");
-  };
+  toast.success("Registration successful! 👍");
+
+  navigate("/login");
+};
+
 
   return (
+    <div className="register-page">
     <div className="form-container">
-      <h1 className="form-title">REGISTER</h1>
-
+      <h1 className="form-title">CREATE ACCOUNT</h1>
       <form onSubmit={handleSubmit}>
         {/* Name */}
         <div className="form-group">
@@ -188,6 +191,7 @@ const Register = () => {
       <p className="link-text">
         Already have an account? <a href="/Login">Login here</a>
       </p>
+    </div>
     </div>
   );
 };

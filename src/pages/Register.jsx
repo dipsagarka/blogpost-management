@@ -85,7 +85,7 @@ const handleSubmit = (e) => {
   );
 
   if (userExists) {
-    toast.error("Email already registered ❌");
+    toast.error("Email already registered !");
     return;
   }
 
@@ -93,7 +93,7 @@ const handleSubmit = (e) => {
 
   localStorage.setItem("authData", JSON.stringify(existingUsers));
 
-  toast.success("Registration successful! 👍");
+  toast.success("Registration successful! ");
   navigate("/login");
 };
 

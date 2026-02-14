@@ -64,19 +64,39 @@ const handleSubmit = (e) => {
   e.preventDefault();
   if (!validate()) return;
 
-  localStorage.setItem(
-    "authData",
-    JSON.stringify({
-      username: formData.name,   // ✅ correct key
-      email: formData.email,
-      phone: formData.phone,
-      password: formData.password,
-    })
+  // 🔹 Get existing users
+  let existingUsers = JSON.parse(localStorage.getItem("authData"));
+
+  // 🔥 If old single object stored → convert to array
+  if (!Array.isArray(existingUsers)) {
+    existingUsers = existingUsers ? [existingUsers] : [];
+  }
+
+  const newUser = {
+    username: formData.name,
+    email: formData.email,
+    phone: formData.phone,
+    password: formData.password,
+  };
+
+  // 🔹 Check duplicate email
+  const userExists = existingUsers.find(
+    (user) => user.email === newUser.email
   );
+
+  if (userExists) {
+    toast.error("Email already registered ❌");
+    return;
+  }
+
+  existingUsers.push(newUser);
+
+  localStorage.setItem("authData", JSON.stringify(existingUsers));
 
   toast.success("Registration successful! 👍");
   navigate("/login");
 };
+
 
 
 

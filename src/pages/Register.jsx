@@ -64,10 +64,10 @@ const handleSubmit = (e) => {
   e.preventDefault();
   if (!validate()) return;
 
-  // 🔹 Get existing users
+  // Get existing users
   let existingUsers = JSON.parse(localStorage.getItem("authData"));
 
-  // 🔥 If old single object stored → convert to array
+  //  If old single object stored → convert to array
   if (!Array.isArray(existingUsers)) {
     existingUsers = existingUsers ? [existingUsers] : [];
   }
@@ -79,7 +79,7 @@ const handleSubmit = (e) => {
     password: formData.password,
   };
 
-  // 🔹 Check duplicate email
+  // Check duplicate email
   const userExists = existingUsers.find(
     (user) => user.email === newUser.email
   );

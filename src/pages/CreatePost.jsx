@@ -28,7 +28,7 @@ const CreatePost = () => {
 
   const [previewImage, setPreviewImage] = useState("");
 
-  /* ✅ AUTO AUTHOR */
+  /*  AUTO AUTHOR */
   useEffect(() => {
     const loginData = JSON.parse(localStorage.getItem("loginData") || "{}");
     if (loginData?.username) {
@@ -39,7 +39,7 @@ const CreatePost = () => {
     }
   }, []);
 
-  /* ✅ FETCH POST FOR EDIT */
+  /*  FETCH POST FOR EDIT */
   useEffect(() => {
     if (id) {
       fetch(`http://localhost:3000/posts/${id}`)
@@ -68,7 +68,7 @@ const CreatePost = () => {
     }
   }, [id]);
 
-  /* ✅ HANDLE INPUT */
+  /*  HANDLE INPUT */
   const handleChange = (e) => {
     const { name, value } = e.target;
 
@@ -83,7 +83,7 @@ const CreatePost = () => {
     }
   };
 
-  /* ✅ VALIDATION */
+  /*  VALIDATION */
   const validateForm = () => {
     if (!formData.title.trim()) {
       toast.error("Post title required 🚨");
@@ -103,7 +103,7 @@ const CreatePost = () => {
     return true;
   };
 
-  /* ✅ SUBMIT (CREATE + UPDATE) */
+  /*  SUBMIT (CREATE + UPDATE) */
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -150,7 +150,7 @@ const CreatePost = () => {
     }
   };
 
-  /* ✅ CLEAR FORM */
+  /*  CLEAR FORM */
   const clearForm = () => {
     setFormData((prev) => ({
       ...prev,
@@ -163,7 +163,7 @@ const CreatePost = () => {
     setActiveTab("url");
   };
 
-  /* ✅ FILE SELECT */
+  /*  FILE SELECT */
   const handleFileSelect = (file) => {
     if (!file) return;
 
@@ -215,18 +215,20 @@ const CreatePost = () => {
     handleFileSelect(file);
   };
 
-  /* ✅ REMOVE IMAGE */
+  /* REMOVE IMAGE */
   const handleRemoveImage = () => {
     setPreviewImage("");
     setFormData((prev) => ({ ...prev, image: "" }));
     setShowUploadArea(true);
   };
 
-  /* ✅ HANDLE TAB CHANGE */
+  /* HANDLE TAB CHANGE */
   const handleTabChange = (tab) => {
     setActiveTab(tab);
     if (tab === "url") {
       setShowUploadArea(true);
+      setFormData((prev) => ({ ...prev, image: "" }));
+      setPreviewImage("");
     } else {
       setShowUploadArea(true);
       setFormData((prev) => ({ ...prev, image: "" }));

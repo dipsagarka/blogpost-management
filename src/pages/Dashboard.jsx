@@ -5,6 +5,7 @@
   import { toast } from "react-toastify";
   import Navbar from "../component/Navbar";
   import "./Dashboard.css";
+  import "./PostDetails.css";
 
   const Dashboard = () => {
     const navigate = useNavigate();
@@ -165,7 +166,8 @@
                       <p className="post-card-description">
                         {post.description || post.content || post.excerpt}
                       </p>
-                      <button className="read-more-btn">Read More</button>
+                      <button className="read-more-btn"
+                      onClick={() => navigate(`/PostDetails/${post.id}`)}>Read More</button>
                     </div>
                   </div>
                 ))

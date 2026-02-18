@@ -1,11 +1,12 @@
-  import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
   import { FaPlus } from "react-icons/fa";
   import { MdDelete, MdEdit } from "react-icons/md";
   import { useNavigate } from "react-router-dom";
   import { toast } from "react-toastify";
   import Navbar from "../component/Navbar";
   import "./Dashboard.css";
-  import "./PostDetails.css";
+  import "./PostDetails.css"
+
 
   const Dashboard = () => {
     const navigate = useNavigate();

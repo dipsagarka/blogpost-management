@@ -179,28 +179,29 @@ input[type="url"].form-control {
   background: #ef4444;
   color: white;
   border: none;
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: flex;                 /* important */
+  align-items: center;           /* vertical center */
+  justify-content: center;       /* horizontal center */
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all 0.25s ease;
   z-index: 10;
-  box-shadow:
-    0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
 }
 
+/* Hover */
 .remove-image-btn:hover {
   background: #dc2626;
   transform: scale(1.1);
 }
 
+/* Icon size */
 .remove-image-btn svg {
-  font-size: 14px;
+  font-size: 16px;
 }
+
 .submit-btn {
   width: 100%;
   padding: 1rem;

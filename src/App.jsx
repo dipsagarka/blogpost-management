@@ -13,6 +13,8 @@ import Register from "./pages/Register";
 import CreatePost from "./pages/CreatePost";
 import PostDetails from "./pages/PostDetails";
 import Analytics from "./pages/Analytics";
+import Favorites from "./pages/Favorites";
+
 
 
 const DefaultRoute = () => {
@@ -70,7 +72,7 @@ function App() {
       ),
     },
     {
-      path: "PostDetails/:id",
+      path: "/post-details/:id",
       element:(
         <AuthGuard required={true}>
           <PostDetails/>
@@ -78,10 +80,18 @@ function App() {
       )
     },
     {
-      path: "Analytics",
+      path: "/analytics",
       element:(
         <AuthGuard required={true}>
           <Analytics/>
+        </AuthGuard>
+      )
+    },
+    {
+      path: "/favorites",
+      element:(
+        <AuthGuard required={true}>
+          <Favorites/>
         </AuthGuard>
       )
     },
